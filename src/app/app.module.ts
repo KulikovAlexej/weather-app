@@ -16,6 +16,7 @@ import { CurrentLocalityComponent } from './components/current-locality/current-
 import { PotentialLocalityListComponent } from './components/potential-locality-list/potential-locality-list.component';
 import { SearchLocalityContainerComponent } from './containers/search-locality-container/search-locality-container.component';
 import { CurrentLocalityContainerComponent } from './containers/current-locality-container/current-locality-container.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CurrentLocalityContainerComponent } from './containers/current-locality
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
