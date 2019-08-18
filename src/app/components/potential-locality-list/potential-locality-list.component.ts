@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ILocality } from 'src/app/models/locality-search.model';
+import { ILocality } from 'src/app/models/locality-search.models';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

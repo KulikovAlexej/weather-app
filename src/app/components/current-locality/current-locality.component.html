@@ -1,1 +1,9 @@
-<p>current-locality works!</p>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<ng-container *ngIf="weather">
+    {{ weather?.name }}, {{ weather?.sys?.country }}
+</ng-container>
+
+<a routerLink='search'>Change locality</a>
+

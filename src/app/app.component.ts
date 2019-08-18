@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { OpenWeatherApiService } from './services/open-weather-api.service';
+import { WeatherStateService } from './services/weather-state.service';
+import { IWeatherResponse } from './models/locality-weather.models';
+import { Observable } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +12,13 @@ import { OpenWeatherApiService } from './services/open-weather-api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private apiService: OpenWeatherApiService) {}
-  title = 'weather-app';
-  
-  ngOnInit() {
-    // this.apiService.getCurrentWeather().subscribe(v => console.log(v));
 
-    // this.apiService.getRes().subscribe(v => console.log(v));
+  weather$: Observable<IWeatherResponse> = this.weatherState.getWeather$();
+  loading$: Observable<boolean> = this.weatherState.isLoading$().pipe(delay(0)); // error view checked
+  error$: Observable<HttpErrorResponse> = this.weatherState.getError$();
 
-    // this.apiService.searchCity('moscow').subscribe(v => console.log(v));
-  }
+  constructor(
+    private weatherState: WeatherStateService
+  ) { }
+
 }

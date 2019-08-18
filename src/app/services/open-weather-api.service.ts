@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ILocalityList } from '../models/locality-search.model';
+import { ILocalityList } from '../models/locality-search.models';
 import { environment } from '../../environments/environment';
 
 @Injectable({

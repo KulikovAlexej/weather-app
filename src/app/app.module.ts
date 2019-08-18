@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSnackBarModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

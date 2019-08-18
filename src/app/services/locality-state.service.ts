@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpParams, HttpClient } from '@angular/common/http';
-import { ILocality, LocalityListState, ILocalityList } from '../models/locality-search.model';
+import { ILocality, LocalityListState, ILocalityList } from '../models/locality-search.models';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map, distinctUntilChanged } from 'rxjs/operators';

@@ -1,0 +1,14 @@
+
+
+.header {
+    display: flex;
+    .router-wrap{
+        border: 1px solid red;
+        width: 80%;
+    }
+    
+    .toggle-wrap{
+        border: 1px solid green;
+        width: 20%;
+    }
+}

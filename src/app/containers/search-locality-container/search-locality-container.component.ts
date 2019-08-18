@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OpenWeatherApiService } from 'src/app/services/open-weather-api.service';
 import { LocalityStateService } from 'src/app/services/locality-state.service';
 import { Observable } from 'rxjs';
-import { ILocality } from 'src/app/models/locality-search.model';
+import { ILocality } from 'src/app/models/locality-search.models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 
