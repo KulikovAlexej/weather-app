@@ -8,13 +8,18 @@ import { Subject } from 'rxjs';
   templateUrl: './search-locality.component.html',
   styleUrls: ['./search-locality.component.scss']
 })
-export class SearchLocalityComponent {
+export class SearchLocalityComponent implements OnInit {
 
   @Input() isSearching: boolean;
+  @Input() searchingString: string;
   @Output() searchLocalities = new EventEmitter<string>();
-  private city = new FormControl('', Validators.required);
+  private city: FormControl;
 
   constructor() { }
+
+  ngOnInit() {
+    this.city = new FormControl(this.searchingString, Validators.required);
+  }
 
 
   onSearchLocalities() {

@@ -7,6 +7,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 import { AppComponent } from './app.component';
 import { SearchLocalityComponent } from './components/search-locality/search-locality.component';
@@ -38,7 +42,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatListModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

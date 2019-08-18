@@ -12,6 +12,7 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 export class LocalityStateService {
 
     private initialState: LocalityListState = {
+        searchingString: '',
         loading: false,
         error: null,
         localities: []
@@ -44,9 +45,23 @@ export class LocalityStateService {
         )
     }
 
-    getLocalities(): Observable<ILocality[]> {
+    getSearchingString$(): Observable<string> {
+        return this.getState$().pipe(
+            map(state => state.searchingString),
+            distinctUntilChanged()
+        )
+    }
+
+    getLocalities$(): Observable<ILocality[]> {
         return this.getState$().pipe(
             map(state => state.localities),
+            distinctUntilChanged()
+        )
+    }
+
+    getError$(): Observable<HttpErrorResponse> {
+        return this.getState$().pipe(
+            map(state => state.error),
             distinctUntilChanged()
         )
     }

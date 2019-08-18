@@ -53,6 +53,7 @@ export interface IWind {
 }
 
 export interface LocalityListState {
+    searchingString: string;
     loading: boolean;
     error: HttpErrorResponse;
     localities: ILocality[]
