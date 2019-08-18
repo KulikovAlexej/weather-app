@@ -2,7 +2,7 @@
 <ng-container *ngIf="weather">
     
     <p>Locality: {{ weather?.name }}, {{ weather?.sys?.country }}</p>
-    <p>Wind: {{ weather?.wind?.speed }} {{ weather?.wind?.deg }}</p>
+    <p>Wind: {{ weather?.wind?.speed }} {{ weather?.wind?.deg | wind }}</p>
     <p>Weather description {{ weather?.weather[0]?.main }}</p>
     <p>weather icon {{ weather?.weather[0]?.icon }}</p>
     <p>weather temp {{ weather?.main?.temp | temperatureConverter:isCelsius }}</p>
