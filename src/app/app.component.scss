@@ -1,4 +1,6 @@
-
+body{
+    background: blue;
+}
 
 .header {
     display: flex;
@@ -10,5 +12,7 @@
     .toggle-wrap{
         border: 1px solid green;
         width: 20%;
+        display: flex;
+        justify-content: flex-end;
     }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,7 @@ import { CurrentLocalityContainerComponent } from './containers/current-locality
 import { ReactiveFormsModule } from '@angular/forms';
 import { Temperature } from './services/temperature.pipe';
 import { Wind } from './services/wind.pipe';
+import { ErrorsHandler } from './services/error-handler';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,12 @@ import { Wind } from './services/wind.pipe';
     MatProgressSpinnerModule,
     MatButtonToggleModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ErrorsHandler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
