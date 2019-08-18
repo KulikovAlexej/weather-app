@@ -11,10 +11,10 @@ export class AppComponent {
   title = 'weather-app';
   
   ngOnInit() {
-    this.apiService.getCurrentWeather().subscribe(v => console.log(v));
+    // this.apiService.getCurrentWeather().subscribe(v => console.log(v));
 
-    this.apiService.getRes().subscribe(v => console.log(v));
+    // this.apiService.getRes().subscribe(v => console.log(v));
 
-    this.apiService.searchCity('moscow').subscribe(v => console.log(v));
+    // this.apiService.searchCity('moscow').subscribe(v => console.log(v));
   }
 }

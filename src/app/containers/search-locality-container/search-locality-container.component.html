@@ -1,1 +1,8 @@
-<app-search-locality></app-search-locality>
+<app-search-locality
+    [isSearching]="isSearching$ | async"
+    (searchLocalities)="searchLocalities($event)"
+></app-search-locality>
+
+<app-potential-locality-list
+    [localities]="localityList$ | async"
+></app-potential-locality-list>

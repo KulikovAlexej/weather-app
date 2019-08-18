@@ -1,1 +1,7 @@
 <p>potential-locality-list works!</p>
+
+<ul>
+    <li *ngFor="let locality of localities">
+        <a [routerLink]="['/locality', locality.id]">{{ locality?.name }}</a>
+    </li>
+</ul>

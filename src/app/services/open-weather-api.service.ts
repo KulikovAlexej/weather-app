@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { ILocalityList } from '../models/locality-search.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -28,10 +30,14 @@ export class OpenWeatherApiService {
     `)
   }
   
-  searchCity(city: string) {
-    return this.http.get(`
-    api/find?q=${city}&sort=population&appid=cb30165fbee1109708d696ef9dfffd36&lang=ru
-    `)
+  searchCity(city: string): Observable<ILocalityList> {
+    const params: HttpParams = new HttpParams()
+    .set('q', city)
+    .set('sort', 'population')
+    .set('appid', environment.apiKey)
+    .set('lang', 'ru');
+
+    return this.http.get<ILocalityList>(`api/find`, { params: params })
   }
 
   getWeatherByCoords(lon: number, lat: number) {
