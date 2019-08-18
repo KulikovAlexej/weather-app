@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-degrees-toggle',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DegreesToggleComponent implements OnInit {
 
+  @Output() toggleDegrees = new EventEmitter<boolean>();
+  @Input() isCelsius: boolean;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  onToggleDegrees(event: MatButtonToggleChange): void {
+    const isCelcius: boolean = event.value;
+    this.toggleDegrees.emit(isCelcius);
+  }
+
 
 }

@@ -51,6 +51,10 @@ export class WeatherStateService {
     this.state.next({ ...this.state.getValue(), error, loading: false, weather: null });
   }
 
+  setCelsium(inCelsius: boolean) {
+    this.state.next({ ...this.state.getValue(), inCelsius });
+  }
+
   getWeather$(): Observable<IWeatherResponse> {
     return this.getState$().pipe(
       map(state => state.weather),
@@ -61,6 +65,13 @@ export class WeatherStateService {
   isLoading$(): Observable<boolean> {
     return this.getState$().pipe(
       map(state => state.loading),
+      distinctUntilChanged()
+    )
+  }
+
+  isCelsius$(): Observable<boolean> {
+    return this.getState$().pipe(
+      map(state => state.inCelsius),
       distinctUntilChanged()
     )
   }

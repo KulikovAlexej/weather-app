@@ -5,7 +5,10 @@
     </div>
 
     <div class="toggle-wrap">
-        <app-degrees-toggle></app-degrees-toggle>
+        <app-degrees-toggle
+            [isCelsius]="isCelsius$ | async"
+            (toggleDegrees)="toggleDegrees($event)"
+        ></app-degrees-toggle>
     </div>
 
 </div>
@@ -15,4 +18,5 @@
     [weather]="weather$ | async"
     [loading]="loading$ | async"
     [error]="error$ | async"
+    [isCelsius]="isCelsius$ | async"
 ></app-weather-details>

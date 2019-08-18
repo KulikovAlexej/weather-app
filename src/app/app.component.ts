@@ -16,9 +16,14 @@ export class AppComponent {
   weather$: Observable<IWeatherResponse> = this.weatherState.getWeather$();
   loading$: Observable<boolean> = this.weatherState.isLoading$().pipe(delay(0)); // error view checked
   error$: Observable<HttpErrorResponse> = this.weatherState.getError$();
+  isCelsius$: Observable<boolean> = this.weatherState.isCelsius$();
 
   constructor(
     private weatherState: WeatherStateService
   ) { }
+
+  toggleDegrees(isCelsius: boolean) {
+    this.weatherState.setCelsium(isCelsius);
+  }
 
 }

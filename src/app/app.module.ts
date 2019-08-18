@@ -22,6 +22,7 @@ import { PotentialLocalityListComponent } from './components/potential-locality-
 import { SearchLocalityContainerComponent } from './containers/search-locality-container/search-locality-container.component';
 import { CurrentLocalityContainerComponent } from './containers/current-locality-container/current-locality-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Temperature } from './services/temperature.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CurrentLocalityComponent,
     PotentialLocalityListComponent,
     SearchLocalityContainerComponent,
-    CurrentLocalityContainerComponent
+    CurrentLocalityContainerComponent,
+    Temperature
   ],
   imports: [
     BrowserModule,
