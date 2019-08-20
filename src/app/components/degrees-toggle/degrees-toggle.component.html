@@ -1,4 +1,4 @@
-<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-    <mat-button-toggle value="bold">C</mat-button-toggle>
-    <mat-button-toggle value="italic">F</mat-button-toggle>
+<mat-button-toggle-group (change)="onToggleDegrees($event)">
+    <mat-button-toggle [checked]="isCelsius" [value]="true">°C</mat-button-toggle>
+    <mat-button-toggle [checked]="!isCelsius" [value]="false">°F</mat-button-toggle>
 </mat-button-toggle-group>

@@ -12,6 +12,7 @@ export class WeatherDetailsComponent implements OnInit {
   @Input() weather: IWeatherResponse;
   @Input() loading: boolean;
   @Input() error: HttpErrorResponse;
+  @Input() isCelsius: boolean;
   
   constructor() { }
 

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,10 @@ import { PotentialLocalityListComponent } from './components/potential-locality-
 import { SearchLocalityContainerComponent } from './containers/search-locality-container/search-locality-container.component';
 import { CurrentLocalityContainerComponent } from './containers/current-locality-container/current-locality-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Temperature } from './services/temperature.pipe';
+import { Wind } from './services/wind.pipe';
+import { ErrorsHandler } from './services/error-handler';
+import { HidrargiumPressure } from './services/hidrargium-pressure.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CurrentLocalityComponent,
     PotentialLocalityListComponent,
     SearchLocalityContainerComponent,
-    CurrentLocalityContainerComponent
+    CurrentLocalityContainerComponent,
+    Temperature,
+    Wind,
+    HidrargiumPressure
   ],
   imports: [
     BrowserModule,
@@ -47,9 +55,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatChipsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ErrorsHandler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

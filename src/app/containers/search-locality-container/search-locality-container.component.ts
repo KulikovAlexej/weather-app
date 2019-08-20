@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './search-locality-container.component.html',
   styleUrls: ['./search-locality-container.component.scss']
 })
-export class SearchLocalityContainerComponent implements OnInit, OnDestroy {
+export class SearchLocalityContainerComponent {
 
   isSearching$: Observable<boolean> = this.localityStateService.isLoading$();
   localityList$: Observable<ILocality[]> = this.localityStateService.getLocalities$();
@@ -23,9 +23,6 @@ export class SearchLocalityContainerComponent implements OnInit, OnDestroy {
     private snackBar: MatSnackBar
   ) { }
 
-  ngOnInit() {
-    this.localityStateService.getState$().subscribe(v => console.log(v));
-  }
 
   searchLocalities(city: string) {
     this.localityStateService.setState({ loading: true, error: null, localities: [], searchingString: city });
@@ -45,10 +42,6 @@ export class SearchLocalityContainerComponent implements OnInit, OnDestroy {
         });
       }
     );
-  }
-
-  ngOnDestroy() {
-    // this.localityStateService.toInitialState();
   }
 
 }

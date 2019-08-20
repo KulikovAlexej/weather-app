@@ -1,14 +1,47 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
-<ng-container *ngIf="weather">
-    
-    <p>Locality: {{ weather?.name }}, {{ weather?.sys?.country }}</p>
-    <p>Wind: {{ weather?.wind?.speed }} {{ weather?.wind?.deg }}</p>
-    <p>Weather description {{ weather?.weather[0]?.main }}</p>
-    <p>weather icon {{ weather?.weather[0]?.icon }}</p>
-    <p>weather temp {{ weather?.main?.temp }}</p>
-    <p>humidity(влажность) {{ weather?.main?.humidity }}</p>
+<!-- <ng-container *ngIf="weather">
+
+    <p>Ветер: {{ weather?.wind?.speed }} {{ weather?.wind?.deg | wind }}</p>
+    <p>Описание {{ weather?.weather[0]?.description | titlecase  }}</p>
+    <p>Иконка {{ weather?.weather[0]?.icon }}</p>
+    <p>Температура {{ weather?.main?.temp | temperatureConverter:isCelsius }}</p>
+    <p>влажность {{ weather?.main?.humidity }}</p>
     <p>облачность {{ weather?.clouds?.all }}</p>
 
+    <img src="http://openweathermap.org/img/wn/{{weather?.weather[0]?.icon}}.png" width="50" height="50">
+
+</ng-container> -->
+
+<ng-container *ngIf="weather">
+    <div class="main-indicator-wrap mat-typography">
+        <div class="indicator">
+            <img src="http://openweathermap.org/img/wn/{{weather?.weather[0]?.icon}}@2x.png">
+            <span>{{ weather?.main?.temp | temperatureConverter:isCelsius }}</span>
+        </div>
+        <p class="description">{{ weather?.weather[0]?.description | titlecase  }}</p>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="weather">
+    <div class="other-indicators-wrap mat-typography">
+        <div class="indicator-block">
+            <span class="name">Ветер</span>
+            <p class="value">3 м/с, западный</p>
+        </div>
+        <div class="indicator-block">
+            <span class="name">Давление</span>
+            <p class="value">{{ weather?.main?.pressure | hidrargiumPressure }}</p>
+        </div>
+        <div class="indicator-block">
+            <span class="name">Влажность</span>
+            <p class="value">{{ weather?.main?.humidity }} %</p>
+        </div>
+        <div class="indicator-block">
+            <span class="name">Вероятность дождя</span>
+            <p class="value">10%</p>
+        </div>
+    </div>
 </ng-container>
 
 <p *ngIf="error">Wether loading error. Error: {{ error?.status }} {{ error?.statusText }}</p>
