@@ -1,9 +1,9 @@
-
 <mat-spinner *ngIf="loading"></mat-spinner>
 
 <ng-container *ngIf="weather">
-    {{ weather?.name }}, {{ weather?.sys?.country }}
+    <h1 class="mat-typography locality">{{ weather?.name }}, {{ weather?.sys?.country }}</h1>
 </ng-container>
 
-<a routerLink='search'>Change locality</a>
-
+<mat-chip-list>
+    <mat-chip color="primary" class="mat-typography" routerLink='search'>Change locality</mat-chip>
+</mat-chip-list>

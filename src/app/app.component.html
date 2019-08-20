@@ -1,23 +1,17 @@
-<div class="header">
+<div class="wrapper">
+    <div class="header">
 
-    <div class="router-wrap">
-        <router-outlet></router-outlet>
+        <div class="router-wrap">
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="toggle-wrap">
+            <app-degrees-toggle [isCelsius]="isCelsius$ | async" (toggleDegrees)="toggleDegrees($event)">
+            </app-degrees-toggle>
+        </div>
+
     </div>
 
-    <div class="toggle-wrap">
-        <app-degrees-toggle
-            [isCelsius]="isCelsius$ | async"
-            (toggleDegrees)="toggleDegrees($event)"
-        ></app-degrees-toggle>
-    </div>
-
+    <app-weather-details [weather]="weather$ | async" [loading]="loading$ | async" [error]="error$ | async"
+        [isCelsius]="isCelsius$ | async"></app-weather-details>
 </div>
-
-<h1 class="mat-display-1">Jackdaws love my big sphinx of quartz.</h1>
-<h2 class="mat-h2">The quick brown fox jumps over the lazy dog.</h2>
-<app-weather-details
-    [weather]="weather$ | async"
-    [loading]="loading$ | async"
-    [error]="error$ | async"
-    [isCelsius]="isCelsius$ | async"
-></app-weather-details>

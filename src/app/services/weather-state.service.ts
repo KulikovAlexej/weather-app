@@ -32,7 +32,7 @@ export class WeatherStateService {
 
     this.setState({ ...this.state.getValue(), loading: true, error: null });
 
-    return this.http.get<any>(`api/weather`, { params: params })
+    return this.http.get<any>(`api/weather`, { params })
   }
 
   getState$(): Observable<IWeatherState> {

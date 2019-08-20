@@ -11,6 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Temperature } from './services/temperature.pipe';
 import { Wind } from './services/wind.pipe';
 import { ErrorsHandler } from './services/error-handler';
+import { HidrargiumPressure } from './services/hidrargium-pressure.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { ErrorsHandler } from './services/error-handler';
     SearchLocalityContainerComponent,
     CurrentLocalityContainerComponent,
     Temperature,
-    Wind
+    Wind,
+    HidrargiumPressure
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { ErrorsHandler } from './services/error-handler';
     MatSnackBarModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatChipsModule
   ],
   providers: [
     {
