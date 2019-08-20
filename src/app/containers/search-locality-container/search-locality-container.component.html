@@ -1,0 +1,11 @@
+<app-search-locality
+    [isSearching]="isSearching$ | async"
+    [searchingString]="searchingString$ | async"
+    (searchLocalities)="searchLocalities($event)"
+></app-search-locality>
+
+<app-potential-locality-list
+    [isSearching]="isSearching$ | async"
+    [localities]="localityList$ | async"
+    [error]="loadingError$ | async"
+></app-potential-locality-list>

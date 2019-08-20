@@ -1,0 +1,4 @@
+<mat-form-field class="example-full-width">
+    <input type="text" [formControl]="city" matInput placeholder="Город">
+</mat-form-field>
+<button mat-raised-button color="primary" [disabled]="city.invalid || isSearching" (click)="onSearchLocalities()">OK</button>

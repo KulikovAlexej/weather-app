@@ -1,0 +1,4 @@
+<mat-button-toggle-group (change)="onToggleDegrees($event)">
+    <mat-button-toggle [checked]="isCelsius" [value]="true">°C</mat-button-toggle>
+    <mat-button-toggle [checked]="!isCelsius" [value]="false">°F</mat-button-toggle>
+</mat-button-toggle-group>

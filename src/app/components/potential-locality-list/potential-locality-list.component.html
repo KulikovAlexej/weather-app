@@ -1,0 +1,10 @@
+<mat-spinner *ngIf="isSearching"></mat-spinner>
+<mat-list role="list">
+    <mat-list-item *ngFor="let locality of localities" role="listitem">
+        <a [routerLink]="['/locality', locality.id]">{{ locality?.name }}, {{ locality?.sys?.country}}</a>
+    </mat-list-item>
+</mat-list>
+
+<!-- <pre>{{ error | json }}</pre> -->
+
+<p *ngIf="error">Error while searching for locations. Error: {{ error?.status }} {{ error?.statusText }}</p>
